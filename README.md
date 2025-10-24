@@ -44,22 +44,31 @@ It shows a list of animals, and you can:
 
 ## 🗂️ Project Structure
 
-app/
-└── src/
-└── main/
-├── java/com/example/tp05/
-│ ├── MainActivity.kt
-│ ├── AdapterAnimaux.kt
-│ └── Animal.kt
-└── res/
-├── layout/
-│ ├── activity_main.xml
-│ ├── animal_item.xml
-│ └── animal_item_grid.xml
-├── drawable/
-│ ├── info.png
-│ ├── warning.png
-│ └── (animal pictures)
+TP05/
+├── app/
+│   └── src/
+│       └── main/
+│           ├── java/
+│           │   └── com/example/tp05/
+│           │       ├── MainActivity.kt
+│           │       ├── AdapterAnimaux.kt
+│           │       └── Animal.kt
+│           └── res/
+│               ├── layout/
+│               │   ├── activity_main.xml
+│               │   ├── animal_item.xml
+│               │   └── animal_item_grid.xml
+│               ├── drawable/
+│               │   ├── info.png
+│               │   ├── warning.png
+│               │   └── (animal pictures)
+│               └── values/
+│                   └── (colors, strings, styles...)
+├── .idea/
+├── build.gradle
+├── settings.gradle
+└── README.md
+
 
 ---
 
