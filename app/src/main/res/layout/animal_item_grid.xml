@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:gravity="center">
+
+        <!-- Image de l'animal -->
+        <ImageView
+            android:id="@+id/imageAnimal"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="Image de l'animal"
+            android:background="@drawable/image_background"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Nom de l'animal -->
+        <TextView
+            android:id="@+id/textNom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nom Animal"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_marginBottom="4dp"
+            android:gravity="center" />
+
+        <!-- Espèce -->
+        <TextView
+            android:id="@+id/textEspece"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Espèce"
+            android:textSize="12sp"
+            android:textColor="#666666"
+            android:layout_marginBottom="8dp"
+            android:gravity="center" />
+
+        <!-- Bouton Détails (Vert) -->
+        <Button
+            android:id="@+id/btnDetails"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:text="Détails"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:background="@drawable/btn_details_background"
+            android:drawableLeft="@drawable/ic_info"
+            android:drawablePadding="4dp"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Bouton Supprimer (Rouge) -->
+        <Button
+            android:id="@+id/btnSupprimer"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:text="Supprimer"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:background="@drawable/btn_supprimer_background"
+            android:drawableLeft="@drawable/ic_delete"
+            android:drawablePadding="4dp" />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

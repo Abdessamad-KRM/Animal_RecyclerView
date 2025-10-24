@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#F5F5F5">
+
+    <!-- RadioGroup pour choisir le mode d'affichage -->
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/radio_group_background"
+        android:padding="8dp"
+        android:layout_marginBottom="16dp">
+
+        <RadioButton
+            android:id="@+id/radioLineaire"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Linéaire"
+            android:textSize="16sp"
+            android:checked="true"
+            android:buttonTint="#2196F3" />
+
+        <RadioButton
+            android:id="@+id/radioGrille"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Grille"
+            android:textSize="16sp"
+            android:buttonTint="#2196F3" />
+    </RadioGroup>
+
+    <!-- RecyclerView pour afficher la liste -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="vertical" />
+
+</LinearLayout>
