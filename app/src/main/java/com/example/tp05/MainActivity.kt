@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView
 import android.widget.RadioGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.appcompat.app.AlertDialog
 
 data class Animal(
     val nom: String,
@@ -66,26 +67,39 @@ class AdapterAnimaux(
 
             // Bouton Détails (Vert avec icône)
             btnDetails.setOnClickListener {
-                val message = "Nom: ${animal.nom}\nEspèce: ${animal.espece}"
-                Toast.makeText(
-                    itemView.context,
-                    message,
-                    Toast.LENGTH_LONG
-                ).show()
+                // Create a dialog showing details
+                AlertDialog.Builder(itemView.context)
+                .setTitle("Détails de l'animal")
+                .setMessage("Nom : ${animal.nom}\nEspèce : ${animal.espece}")
+                .setIcon(R.drawable.info)
+                .setPositiveButton("OK") { dialog, _ ->
+                    dialog.dismiss()
+                }.show()
             }
 
             // Bouton Supprimer (Rouge avec icône)
             btnSupprimer.setOnClickListener {
                 // Retirer l'animal de la liste
-                animaux.removeAt(position)
-                notifyItemRemoved(position)
-                notifyItemRangeChanged(position, animaux.size)
+                AlertDialog.Builder(itemView.context)
+                    .setTitle("Supprimer ${animal.nom} ?")
+                    .setMessage("Voulez-vous vraiment supprimer cet animal ?")
+                    .setIcon(R.drawable.warning)
+                    .setPositiveButton("Oui") { dialog, _ ->
+                        // User confirmed -> remove the item
+                        animaux.removeAt(position)
+                        notifyItemRemoved(position)
+                        notifyItemRangeChanged(position, animaux.size)
 
-                Toast.makeText(
-                    itemView.context,
-                    "${animal.nom} a été supprimé",
-                    Toast.LENGTH_SHORT
-                ).show()
+                        Toast.makeText(
+                            itemView.context,
+                            "${animal.nom} a été supprimé",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        dialog.dismiss()
+                    }
+                    .setNegativeButton("Non") { dialog, _ ->
+                        dialog.dismiss() // Cancel deletion
+                    }.show()
             }
         }
     }
