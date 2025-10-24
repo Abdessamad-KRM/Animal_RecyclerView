@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -12,7 +13,8 @@ import androidx.recyclerview.widget.RecyclerView
 
 class AdapterAnimaux(
     private var animaux: MutableList<Animal>,
-    private val layoutType: Int
+    private val layoutType: Int,
+    private val onSelectionChanged: () -> Unit
 ) : RecyclerView.Adapter<AdapterAnimaux.AnimalViewHolder>() {
 
     companion object {
@@ -43,12 +45,20 @@ class AdapterAnimaux(
         private val especeTextView: TextView = itemView.findViewById(R.id.textEspece)
         private val btnDetails: Button = itemView.findViewById(R.id.btnDetails)
         private val btnSupprimer: Button = itemView.findViewById(R.id.btnSupprimer)
+        private val checkBox: CheckBox = itemView.findViewById(R.id.checkBoxAnimal)
 
         fun bind(animal: Animal, position: Int) {
             // Afficher les données de l'animal
             imageView.setImageResource(animal.image)
             nomTextView.text = animal.nom
             especeTextView.text = animal.espece
+            checkBox.isChecked = animal.isSelected
+
+            // Gérer la sélection via checkbox
+            checkBox.setOnCheckedChangeListener { _, isChecked ->
+                animaux[adapterPosition].isSelected = isChecked
+                onSelectionChanged()
+            }
 
             // Bouton Détails (Vert avec icône)
             btnDetails.setOnClickListener {
@@ -74,6 +84,7 @@ class AdapterAnimaux(
                         animaux.removeAt(position)
                         notifyItemRemoved(position)
                         notifyItemRangeChanged(position, animaux.size)
+                        onSelectionChanged()
 
                         Toast.makeText(
                             itemView.context,
@@ -92,6 +103,19 @@ class AdapterAnimaux(
     // Méthode pour mettre à jour la liste
     fun updateList(newList: MutableList<Animal>) {
         animaux = newList
+        notifyDataSetChanged()
+    }
+
+    // Récupérer les positions des éléments sélectionnés
+    fun getSelectedPositions(): List<Int> {
+        return animaux.mapIndexedNotNull { index, animal ->
+            if (animal.isSelected) index else null
+        }
+    }
+
+    // Supprimer tous les éléments sélectionnés
+    fun removeSelectedItems() {
+        animaux.removeAll { it.isSelected }
         notifyDataSetChanged()
     }
 }

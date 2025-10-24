@@ -38,6 +38,26 @@
             android:buttonTint="#2196F3" />
     </RadioGroup>
 
+    <!-- TextView pour afficher les positions sélectionnées -->
+    <TextView
+        android:id="@+id/textSelectionInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:textSize="14sp"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Bouton pour supprimer les éléments sélectionnés -->
+    <Button
+        android:id="@+id/btnSupprimerSelection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Supprimer les éléments sélectionnés"
+        android:backgroundTint="#F44336"
+        android:textColor="#FFFFFF"
+        android:visibility="gone"
+        android:layout_marginBottom="16dp" />
+
     <!-- RecyclerView pour afficher la liste -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

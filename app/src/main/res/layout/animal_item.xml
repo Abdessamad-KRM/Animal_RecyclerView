@@ -8,11 +8,22 @@
     app:cardElevation="4dp"
     app:cardBackgroundColor="#FFFFFF">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:padding="12dp">
+
+        <!-- CheckBox en haut à droite -->
+        <CheckBox
+            android:id="@+id/checkBoxAnimal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:buttonTint="#2196F3"
+            android:background="@null"
+            android:clickable="true"
+            android:focusable="true"/>
 
         <!-- Image de l'animal -->
         <ImageView
@@ -21,14 +32,17 @@
             android:layout_height="80dp"
             android:scaleType="centerCrop"
             android:contentDescription="Image de l'animal"
-            android:background="@drawable/image_background" />
+            android:background="@drawable/image_background"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true" />
 
         <!-- Informations et boutons -->
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:orientation="vertical"
+            android:layout_toEndOf="@id/imageAnimal"
+            android:layout_toStartOf="@id/checkBoxAnimal"
             android:paddingStart="16dp"
             android:paddingEnd="8dp">
 
@@ -63,33 +77,35 @@
                 <!-- Bouton Détails (Vert) -->
                 <Button
                     android:id="@+id/btnDetails"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="36dp"
+                    android:layout_weight="1"
                     android:text="Détails"
                     android:textColor="#FFFFFF"
                     android:textSize="12sp"
                     android:background="@drawable/btn_details_background"
                     android:drawableLeft="@drawable/ic_info"
                     android:drawablePadding="4dp"
-                    android:paddingStart="12dp"
-                    android:paddingEnd="12dp"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
                     android:layout_marginEnd="8dp" />
 
                 <!-- Bouton Supprimer (Rouge) -->
                 <Button
                     android:id="@+id/btnSupprimer"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="36dp"
+                    android:layout_weight="1"
                     android:text="Supprimer"
                     android:textColor="#FFFFFF"
                     android:textSize="12sp"
                     android:background="@drawable/btn_supprimer_background"
                     android:drawableLeft="@drawable/ic_delete"
                     android:drawablePadding="4dp"
-                    android:paddingStart="12dp"
-                    android:paddingEnd="12dp" />
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp" />
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+    </RelativeLayout>
 
 </androidx.cardview.widget.CardView>
