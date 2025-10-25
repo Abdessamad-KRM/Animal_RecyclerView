@@ -50,10 +50,11 @@
     <!-- Bouton pour supprimer les éléments sélectionnés -->
     <Button
         android:id="@+id/btnSupprimerSelection"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:text="Supprimer les éléments sélectionnés"
-        android:backgroundTint="#F44336"
+        android:backgroundTint="#920B02"
         android:textColor="#FFFFFF"
         android:visibility="gone"
         android:layout_marginBottom="16dp" />
