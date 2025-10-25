@@ -44,7 +44,21 @@ It shows a list of animals, and you can:
 
 ## 🗂️ Project Structure
 
-<pre> ```text TP05/ ├── app/ │ ├── src/ │ │ ├── main/ │ │ │ ├── java/ │ │ │ │ └── com/example/tp05/MainActivity.kt │ │ │ ├── res/ │ │ │ │ ├── layout/activity_main.xml │ │ │ │ ├── drawable/info.png │ │ │ │ └── values/strings.xml │ │ │ └── AndroidManifest.xml │ └── build.gradle └── README.md ``` </pre>
+```text
+TP05/
+├── app/
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/
+│   │   │   │   └── com/example/tp05/MainActivity.kt
+│   │   │   ├── res/
+│   │   │   │   ├── layout/activity_main.xml
+│   │   │   │   ├── drawable/info.png
+│   │   │   │   └── values/strings.xml
+│   │   │   └── AndroidManifest.xml
+│   └── build.gradle
+└── README.md
+```
 
 
 ---
