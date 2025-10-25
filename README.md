@@ -47,16 +47,27 @@ It shows a list of animals, and you can:
 ```text
 TP05/
 ├── app/
-│   ├── src/
-│   │   ├── main/
-│   │   │   ├── java/
-│   │   │   │   └── com/example/tp05/MainActivity.kt
-│   │   │   ├── res/
-│   │   │   │   ├── layout/activity_main.xml
-│   │   │   │   ├── drawable/info.png
-│   │   │   │   └── values/strings.xml
-│   │   │   └── AndroidManifest.xml
-│   └── build.gradle
+│   └── src/
+│       └── main/
+│           ├── java/
+│           │   └── com/example/tp05/
+│           │       ├── MainActivity.kt
+│           │       ├── AdapterAnimaux.kt
+│           │       └── Animal.kt
+│           └── res/
+│               ├── layout/
+│               │   ├── activity_main.xml
+│               │   ├── animal_item.xml
+│               │   └── animal_item_grid.xml
+│               ├── drawable/
+│               │   ├── info.png
+│               │   ├── warning.png
+│               │   └── (animal pictures)
+│               └── values/
+│                   └── (colors, strings, styles...)
+├── .idea/
+├── build.gradle
+├── settings.gradle
 └── README.md
 ```
 
